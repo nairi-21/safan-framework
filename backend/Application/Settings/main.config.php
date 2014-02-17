@@ -14,7 +14,7 @@ return array(
 	/**
 	 * Base Url
 	 */		
-	'base_url' => 'safan',
+	'base_url' => 'safan-framework',
 
 	/**
 	 * Language

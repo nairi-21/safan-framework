@@ -5,7 +5,7 @@
             <div class="menu right">
                 <ul>
                     <li class="left m10 c666 f08">
-                        <a href="<?= \Framework\Safan::app()->baseUrl ?>/hello" class="linked">Hello world</a>
+                        <a href="<?= \Framework\Safan::app()->baseUrl ?>/statics/hello" class="linked">Hello world</a>
                     </li>
                     <li class="left m10 c666 f08">
                         <a href="<?= \Framework\Safan::app()->baseUrl ?>/login" class="linked">Login</a>
