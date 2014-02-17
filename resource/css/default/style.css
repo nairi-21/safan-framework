@@ -1,0 +1,39 @@
+body
+{
+    font-family: sans-serif, Helvetica;
+	background:#fff;
+	font-size: 1.0em;
+}
+#pageWrapper
+{
+    margin:0px auto;
+    width:100%;
+    min-width:1000px;
+}
+.header
+{
+    padding: 10px 0px;
+    background:#f1f1f1;
+    border:1px solid #dcdcdc;
+}
+.header .headerWrapper
+{
+    margin:0px auto;
+    width:1000px;
+}
+.content
+{
+
+}
+.content .contentWrapper
+{
+    margin: 0px auto;
+    padding: 20px 10px;
+    width:1000px;
+    min-height:300px;
+}
+.footer
+{
+    padding: 5px;
+    border-top:1px solid #dcdcdc;
+}

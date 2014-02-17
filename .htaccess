@@ -1,0 +1,8 @@
+RewriteEngine on
+AddDefaultCharset UTF-8
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+DirectoryIndex resource/index.php
+RewriteRule ^(.*)$ resource/index.php [L]

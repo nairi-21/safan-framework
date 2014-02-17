@@ -1,0 +1,47 @@
+/*********************** MysqlDataMaper *************************/
+----------------- IN MODEL -------------------
+1.) function addJoin($tableName, $joinType = 'left', $on)
+		- $tableName - join table name
+		- $joinType - (left, right, inner) - by default left
+		- $on - string for join (example - 'usersInfo ON users.id = usersInfo.userID')
+2.) function getFields()
+		- return Fields array		
+3.) function join($tableName, $joinType, $on, $joinTableFields = array())	
+		- $tableName - join table name
+		- $joinType - (left, right, inner) - by default left
+		- $on - string for join (example - 'users.id = usersInfo.userID')
+		- $joinTableFields - Join Table Fields (example -  Languages::model()->getFields())
+4.) function where($query = array(), $differential = array())	
+		- $query - (example - where(array('id' => 1), array('!=')))		
+		- $differential - type ('=', '!=', '>', '<', '<>') - by default '='	
+5.) function orderBy($query = array())	
+		- $query - (example - orderBy(array('id' => 'DESC'))			
+6.) function groupBy($query = array())	
+		- $query - (example - groupBy(array('id'))		
+7.) function limit($$startFrom, $limit)	
+		- $query - (example - limit(false, 2)		
+8.) function run()		
+		- Execute Query
+9.) function getPK()
+		- return Primary Key
+10.) function save($object, $where=array())
+		- if PK exists in empty object Update Row else Insert
+		- $object (example $object = Users::model()->getEmptyObject())
+		- $where (example array('id' => 1))
+11.) function begin()
+12.) function beginAll()
+13.) function beginAllInArray($fieldName, $fieldArray()0)
+14.) function findByPK($pk)				
+/*********************** MysqlFields ***************************/
+1.)	function __construct($tableName, $columnName, $columnType)
+        - $tableName - join table name
+        - $columnName - table column name
+        - $columnType - Column type (example - MysqlDataMaper::FIELD_TYPE_INT)
+2.) function addField($fieldObject)
+        - $fieldObject - Object MysqlField
+3.) function noupdate($boolean)   
+    	- $boolean - update or no 
+4.) function noinsert($boolean)   
+    	- $boolean - insert or no 
+5.) function pk($boolean)   
+    	- $pk - Primary Key

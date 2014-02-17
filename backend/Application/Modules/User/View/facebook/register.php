@@ -1,0 +1,1 @@
+<?php $widgetManager->begin('AuthRegisterForm', array('params' => $authRegisterWidgetParams)); ?>
