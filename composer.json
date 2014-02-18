@@ -10,6 +10,6 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "haroutweb/safan-framework": "1.*"
+        "haroutweb/safan-framework": "dev-master"
     }
 }
