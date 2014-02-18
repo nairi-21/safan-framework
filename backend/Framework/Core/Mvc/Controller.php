@@ -118,17 +118,14 @@ class Controller{
             extract($this->vars, EXTR_REFS);
 
             if($isView){
-                if(Safan::app()->getDebugMode())
-                    Safan::app()->getObjectManager()->get('logger')->printLogs();
 				ob_start();
 				include $viewFile;
 				$outputBuffer = ob_get_clean();
 				echo $outputBuffer;
 				ob_end_flush();
 			}
-			else{
+			else
 				include $viewFile;
-            }
 			return;
 		}
 		return Safan::app()->getObjectManager()->get('dispatcher')->error($view . ' file Doesn`t exists in '. Get::exists('module') .' Controller');

@@ -17,4 +17,8 @@ REQUIREMENTS
 ------------
 PHP > 5.3.0  
 Memcache  
-Imagick   
+Imagick
+
+Check requirements
+
+        http://localhost/safan-framework/statics/error/log
