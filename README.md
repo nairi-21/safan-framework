@@ -15,6 +15,6 @@ directory. You shall see the following files and directories:
 
 REQUIREMENTS
 ------------
-PHP > 5.3.0 
-Memcache
-Imagick
+PHP > 5.3.0  
+Memcache  
+Imagick   
