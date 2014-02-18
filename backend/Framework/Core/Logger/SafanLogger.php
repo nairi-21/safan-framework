@@ -14,7 +14,7 @@ class SafanLogger{
      */
     public function getLogs($key = false){
         if($key)
-            return isset($this->logs[$key]) ? $this->logs[key] : false;
+            return isset($this->logs[$key]) ? $this->logs[$key] : false;
 		return $this->logs;
     }
     
@@ -24,6 +24,23 @@ class SafanLogger{
     public function setLog($logKey, $logParams){
         $this->logs[$logKey] = $logParams;
     }
-	
+
+    /**
+     * Print Log
+     */
+    public function printLogs(){
+        foreach($this->logs as $value)
+            echo "<div class='DUMP' style='border: 2px solid #cc9966;
+                                            background-color: #f6efb9;
+                                            color:#000000;position: relative;
+                                            z-index: 100000;
+                                            margin:5px;
+                                            padding: 5px;
+                                            -webkit-border-radius:5px;
+                                            -moz-border-radius:5px;
+                                            -o-border-radius:5px;
+                                            border-radius:5px;
+                                            word-wrap:break-word'>". $value ."</div>";
+    }
 	
 }

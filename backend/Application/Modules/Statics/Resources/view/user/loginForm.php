@@ -1,0 +1,1 @@
+<?php $widgetManager->begin('AuthenticationLoginForm'); ?>

@@ -15,7 +15,6 @@ use \Framework\Lib\Authentication\AuthenticationManager;
 use \Framework\Core\FileSystem\FileSystem;
 use \Framework\Core\Loader\SplClassLoader;
 use \Framework\Core\Logger\SafanLogger;
-use \Framework\Safan;
 
 class WebApplication extends Application{
 	/**
@@ -86,6 +85,8 @@ class WebApplication extends Application{
         if(isset($config['session_start']) && $config['session_start'] === true)
 		    $session->start();
 		// FileSystem Object
+        if(!class_exists('Imagick'))
+            $om->get('logger')->setLog('imagick', 'Imagick class not found');
 		$fileSystem = new FileSystem();
 		$om->setObject('fileSystem', $fileSystem);
 		// FlashMessenger Object
@@ -99,8 +100,8 @@ class WebApplication extends Application{
 		$om->setObject('cookie', $cookie);
         // Memcache & Authentication Object
         if(!class_exists('Memcache')){
-            $om->get('logger')->setLog('memcache', 'Memcache is not found');
-            $om->get('logger')->setLog('authentication', 'Authentication not running');
+            $om->get('logger')->setLog('memcache', 'Memcache class is not found');
+            $om->get('logger')->setLog('authentication', 'Authentication not running, please install Memcache class');
         }
         else{
 		    $memcache = new DBCache();
@@ -189,7 +190,7 @@ class WebApplication extends Application{
 	 */
 	public function _dump($var){
 		if(self::$debug){
-			echo "<div class='DUMP' style='border: 2px solid #cc9966; background-color: #ffff99;margin-top: 30px; color:#000000;position: relative;z-index: 100000; padding: 10px; word-wrap:break-word'><pre>";
+			echo "<div class='DUMP' style='border: 2px solid #cc9966; background-color: #f6efb9;margin-top: 30px; color:#000000;position: relative;z-index: 100000; padding: 10px; word-wrap:break-word'><pre>";
 			var_dump($var);
 			echo "<pre></div>";
 		}

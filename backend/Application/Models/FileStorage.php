@@ -6,7 +6,9 @@ use Framework\Core\Mvc\Model\MysqlDataMaper;
 
 class FileStorage extends MysqlDataMaper
 {
-	
+	/**
+	 * Constructor
+	 */
 	public function __construct(){
 		$field = new MysqlFields($this->table(), 'id', MysqlDataMaper::FIELD_TYPE_INT);
 		$field->pk(true);
@@ -23,7 +25,6 @@ class FileStorage extends MysqlDataMaper
 		$field = new MysqlFields($this->table(), 'creationDate', MysqlDataMaper::FIELD_TYPE_DATETIME);
 		$this->addField($field);
 	}
-	
 	/**
 	 * @return string the associated database table name
 	 */
@@ -37,19 +38,5 @@ class FileStorage extends MysqlDataMaper
 	public function table()
 	{
 		return 'fileStorage';
-	}
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributes()
-	{
-		return array(
-				'id' => 'ID',
-				'entityType' => 'entityType',
-				'entityID' => 'entityID',
-				'fileName' => 'fileName',
-				'fileExt'=>'fileExt',
-				'creationDate' => 'Creation Date',
-		);
 	}
 }

@@ -8,7 +8,7 @@
                         <a href="<?= \Framework\Safan::app()->baseUrl ?>/statics/hello" class="linked">Hello world</a>
                     </li>
                     <li class="left m10 c666 f08">
-                        <a href="<?= \Framework\Safan::app()->baseUrl ?>/login" class="linked">Login</a>
+                        <a href="<?= \Framework\Safan::app()->baseUrl ?>/statics/user/login" class="linked">Login</a>
                     </li>
                 </ul>
             </div>
