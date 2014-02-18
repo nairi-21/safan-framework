@@ -12,3 +12,9 @@ directory. You shall see the following files and directories:
       resource/            Frontend zone (css, js, media files)
       .htaccess            Apache configs
       README               this file
+
+REQUIREMENTS
+------------
+PHP > 5.3.0 
+Memcache
+Imagick
