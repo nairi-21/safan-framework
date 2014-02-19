@@ -2,7 +2,7 @@
 
 namespace Framework\Core\Cli;
 
-use \Framework\Api;
+use \Framework\Safan;
 use \Framework\Core\Exceptions\FileNotException;
 
 class CliManager
@@ -26,19 +26,21 @@ class CliManager
         $modulePath = BASE_PATH . DS . 'backend' . DS . 'Framework' . DS . 'Core' . DS . 'Cli' . DS . 'Modules' . DS .  ucfirst($route['module']);
         $moduleController = $modulePath . DS . 'Controller' . DS . ucfirst($route['controller']) . 'Controller.php';
         if(!file_exists($moduleController))
-            return $this->getErrorMessage($route['module'] . 'Module doesn`t exists in CLI');
+            return $this->getErrorMessage($route['module'] . 'Module controller doesn`t exists in CLI');
+
+        include_once($moduleController);
         $controllerClass = '\\Framework\\Core\\Cli\\Modules\\' . ucfirst($route['module']) . '\\Controller\\' . ucfirst($route['controller']) . 'Controller';
-         
+
         if(!class_exists($controllerClass))
 	        return $this->getErrorMessage($route['controller'] .' Controller Class doesn`t exists in CLI module');
     
-        //$moduleControllerObject = new $controllerClass;
-        //$actionMethod = strtolower($route['action']) . 'Action';
+        $moduleControllerObject = new $controllerClass;
+        $actionMethod = strtolower($route['action']) . 'Action';
 	    	
-		//if(!method_exists($moduleControllerObject, $actionMethod))
-			//return $this->getErrorMessage($actionMethod . ' Action Method doesn`t exists in CLI Controller');
-		
-		//return $moduleControllerObject->$actionMethod();
+		if(!method_exists($moduleControllerObject, $actionMethod))
+			return $this->getErrorMessage($actionMethod . ' Action Method doesn`t exists in CLI Controller');
+
+        return $moduleControllerObject->$actionMethod();
     }
     
     
@@ -75,7 +77,7 @@ class CliManager
      * @color green
      */
     private function getMessage($message){
-        echo "\e[00;34m$message \e[0m \n\r";
+        echo '\e[00;34m' . $message . '\e[0m \n\r';
     }
 
     /**
@@ -83,7 +85,7 @@ class CliManager
      * @color red
      */
     public static function getErrorMessage($message){
-        echo "\e[00;31m$message \e[0m \n\r";
+        echo '\033[' . $message . '\033[0m' . PHP_EOL;
         exit;
     }
 }

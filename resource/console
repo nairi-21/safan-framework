@@ -5,7 +5,7 @@ define('DS', DIRECTORY_SEPARATOR);
 define('BASE_PATH', dirname(__DIR__));
 
 $loader = BASE_PATH . DS . 'backend' . DS . 'Framework' . DS . 'Core' . DS . 'Loader' .DS  . 'SplClassLoader.php';
-$framework = BASE_PATH . DS . 'backend' . DS . 'Framework' . DS . 'Api.php';
+$framework = BASE_PATH . DS . 'backend' . DS . 'Framework' . DS . 'Safan.php';
 
 require_once($loader);
 require_once($framework);
@@ -13,4 +13,4 @@ require_once($framework);
 $loader = new Framework\Core\Loader\SplClassLoader('Framework', 'backend');
 $loader->register();
 
-Framework\Api::createApp('\Framework\Core\Application\ConsoleApplication')->run();
+Framework\Safan::createApp('\Framework\Core\Application\ConsoleApplication')->run();

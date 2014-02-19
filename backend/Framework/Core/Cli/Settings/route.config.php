@@ -9,9 +9,4 @@ return array(
  			'action' => 'index',
  			'matches' => array('', 'module', 'controller', 'action'),
  	),
-
-
-
-
-
 );

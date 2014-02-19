@@ -147,11 +147,11 @@ class SplClassLoader
     		
             $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . $this->_fileExtension;
             $filePath = ($this->_includePath !== null ? $this->_includePath . DIRECTORY_SEPARATOR : '') . $fileName;
-            
+
             if (file_exists($filePath))
                 require $filePath;
-            else
-                throw new FileNotFoundException($filePath . ' Not Exist in filesystem');
+            else{ echo $filePath;exit;
+                throw new FileNotFoundException($filePath . ' Not Exist in filesystem');}
         }
     }
 }
